@@ -11,6 +11,7 @@
 		0F233F1A2AC4B6C7003006E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F233F192AC4B6C7003006E1 /* ContentView.swift */; };
 		0F233F1C2AC4B6C9003006E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F233F1B2AC4B6C9003006E1 /* Assets.xcassets */; };
 		0F233F1F2AC4B6C9003006E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F233F1E2AC4B6C9003006E1 /* Preview Assets.xcassets */; };
+		0F233F262AC5DA1B003006E1 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F233F252AC5DA1B003006E1 /* ARViewContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		0F233F192AC4B6C7003006E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0F233F1B2AC4B6C9003006E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F233F1E2AC4B6C9003006E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0F233F252AC5DA1B003006E1 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				0F233F172AC4B6C7003006E1 /* AppDelegate.swift */,
 				0F233F192AC4B6C7003006E1 /* ContentView.swift */,
+				0F233F252AC5DA1B003006E1 /* ARViewContainer.swift */,
 				0F233F1B2AC4B6C9003006E1 /* Assets.xcassets */,
 				0F233F1D2AC4B6C9003006E1 /* Preview Content */,
 			);
@@ -139,6 +142,7 @@
 			files = (
 				0F233F1A2AC4B6C7003006E1 /* ContentView.swift in Sources */,
 				0F233F182AC4B6C7003006E1 /* AppDelegate.swift in Sources */,
+				0F233F262AC5DA1B003006E1 /* ARViewContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,13 +279,12 @@
 				DEVELOPMENT_TEAM = 3H3S259942;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera access for Augmented Reality features";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,13 +309,12 @@
 				DEVELOPMENT_TEAM = 3H3S259942;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires camera access for Augmented Reality features";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
