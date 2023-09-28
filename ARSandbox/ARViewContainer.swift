@@ -13,7 +13,7 @@ struct ARViewContainer: UIViewRepresentable {
 
     func makeUIView(context: Context) -> ARView {
 
-        let arView = ARView(frame: .zero)
+        let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
 
         return arView
 
