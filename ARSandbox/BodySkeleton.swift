@@ -10,8 +10,51 @@ import RealityKit
 import ARKit
 
 class BodySkeleton: Entity {
+    var joints: [String: Entity] = [:]
+    var bones: [String: Entity] = [:]
+    
     required init(for bodyAnchor: ARBodyAnchor) {
         super.init()
+        
+        for jointName in ARSkeletonDefinition.defaultBody3D.jointNames {
+            var jointRadius: Float = 0.05
+            var jointColor: UIColor = .green
+            
+            // Setting color and size based on specific jointName
+            // Green => tracked by ARKit, Yellow => Follow the motion of closest green parent
+            switch jointName {
+            case "left_shoulder_1_joint", "right_shoulder_1_joint":
+                jointRadius *= 0.5
+            case "left_hand_joint", "right_hand_joint":
+                jointRadius *= 1
+                jointColor = .green
+            case _ where jointName.hasPrefix("left_hand") || jointName.hasPrefix("right_hand"):
+                jointRadius *= 0.25
+                jointColor = .yellow
+            default:
+                jointRadius = 0.05
+                jointColor = .green
+            }
+            
+            // Creating an entity for this joint
+            let jointEntity = createJoint(radius: jointRadius, color: jointColor)
+            
+            // Adding to joints directory
+            joints[jointName] = jointEntity
+            
+            // Added to parent entity
+            self.addChild(jointEntity)
+        }
+        
+        for bone in Bones.allCases {
+            guard let skeletonBone = createSkeletonBone(bone: bone, bodyAnchor: bodyAnchor)
+            else { continue }
+            
+            // Creating an entity for the bone
+            let boneEntity = createBoneEntity(for: skeletonBone)
+            bones[bone.name] = boneEntity
+            self.addChild(boneEntity)
+        }
     }
     
     @MainActor required init() {
