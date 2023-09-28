@@ -61,6 +61,39 @@ class BodySkeleton: Entity {
         fatalError("init() has not been implemented")
     }
     
+    // Updating the joints and bones with new AR Session data
+    func update(with bodyAnchor: ARBodyAnchor){
+        let rootPosition = simd_make_float3(bodyAnchor.transform.columns.3)
+        
+        // Updating joints
+        for jointName in ARSkeletonDefinition.defaultBody3D.jointNames {
+            if let jointEntity = joints[jointName],
+               let jointEntityTransform = bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: jointName)) {
+                // Position relative to root
+                let jointEntityOffsetFromRoot = simd_make_float3(jointEntityTransform.columns.3)
+                
+                // Position relative to world
+                jointEntity.position = jointEntityOffsetFromRoot + rootPosition
+                jointEntity.orientation = Transform(matrix: jointEntityTransform).rotation
+            }
+        }
+        
+        // Updating bones
+        for bone in Bones.allCases {
+            let boneName = bone.name
+            
+            guard let entity = bones[boneName],
+                  let skeletonBone = createSkeletonBone(bone: bone, bodyAnchor: bodyAnchor)
+            else { continue }
+            
+            // Setting position for bone
+            entity.position = skeletonBone.centerPosition
+            
+            // Setting orientation for bone
+            entity.look(at: skeletonBone.toJoint.position, from: skeletonBone.centerPosition, relativeTo: nil)
+        }
+    }
+    
     // Helper function to create a new joint sphere
     private func createJoint(radius: Float, color: UIColor = .white) -> Entity {
         let mesh = MeshResource.generateSphere(radius: radius)
