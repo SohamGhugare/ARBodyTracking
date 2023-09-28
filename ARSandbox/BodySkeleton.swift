@@ -26,4 +26,29 @@ class BodySkeleton: Entity {
         
         return entity
     }
+    
+    // Helper function to create a skeleton bone
+    private func createSkeletonBone(bone: Bones, bodyAnchor: ARBodyAnchor) -> SkeletonBone? {
+        guard let fromJointEntityTransform = bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: bone.jointFromName)),
+              let toJointEntityTransform = bodyAnchor.skeleton.modelTransform(for: ARSkeleton.JointName(rawValue: bone.jointToName))
+        
+        else { return nil }
+        
+        // Getting the root joint position (i.e. hipjoint)
+        let rootPosition = simd_make_float3(bodyAnchor.transform.columns.3)
+        
+        // Getting the offset of joints from the root joint
+        let jointFromEntityOffsetFromRoot = simd_make_float3(fromJointEntityTransform.columns.3)
+        let jointToEntityOffsetFromRoot = simd_make_float3(toJointEntityTransform.columns.3)
+        
+        // Converting the positions from root reference, relative to world reference
+        let jointFromEntityPosition = jointFromEntityOffsetFromRoot + rootPosition
+        let jointToEntityPosition = jointToEntityOffsetFromRoot + rootPosition
+        
+        // Creating joints and the bone connecting those joints
+        let fromJoint = SkeletonJoint(name: bone.jointFromName, position: jointFromEntityPosition)
+        let toJoint = SkeletonJoint(name: bone.jointToName, position: jointToEntityPosition)
+        
+        return SkeletonBone(fromJoint: fromJoint, toJoint: toJoint)
+    }
 }
