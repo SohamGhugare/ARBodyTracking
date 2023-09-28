@@ -18,22 +18,22 @@ class BodySkeleton: Entity {
         
         for jointName in ARSkeletonDefinition.defaultBody3D.jointNames {
             var jointRadius: Float = 0.05
-            var jointColor: UIColor = .green
+            var jointColor: UIColor = .cyan
             
             // Setting color and size based on specific jointName
-            // Green => tracked by ARKit, Yellow => Follow the motion of closest green parent
+            // Cyan => tracked by ARKit, Yellow => Follow the motion of closest cyan parent
             switch jointName {
             case "left_shoulder_1_joint", "right_shoulder_1_joint":
                 jointRadius *= 0.5
             case "left_hand_joint", "right_hand_joint":
                 jointRadius *= 1
-                jointColor = .green
+                jointColor = .cyan
             case _ where jointName.hasPrefix("left_hand") || jointName.hasPrefix("right_hand"):
                 jointRadius *= 0.25
                 jointColor = .yellow
             default:
                 jointRadius = 0.05
-                jointColor = .green
+                jointColor = .cyan
             }
             
             // Creating an entity for this joint
@@ -131,7 +131,7 @@ class BodySkeleton: Entity {
     // Helper function to create a bone entity
     private func createBoneEntity(for skeletonBone: SkeletonBone, diameter: Float = 0.04, color: UIColor = .white) -> Entity {
         let mesh = MeshResource.generateBox(size: [diameter, diameter, skeletonBone.length], cornerRadius: diameter/2)
-        let material = SimpleMaterial(color: color, roughness: 0.5, isMetallic: true)
+        let material = SimpleMaterial(color: color, roughness: 0.5, isMetallic: false)
         let entity = ModelEntity(mesh: mesh, materials: [material])
         
         return entity
