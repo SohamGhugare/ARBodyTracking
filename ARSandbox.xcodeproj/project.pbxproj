@@ -14,6 +14,7 @@
 		0F233F262AC5DA1B003006E1 /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F233F252AC5DA1B003006E1 /* ARViewContainer.swift */; };
 		0F233F282AC5DCB0003006E1 /* SkeletonJoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F233F272AC5DCB0003006E1 /* SkeletonJoint.swift */; };
 		0F233F2A2AC5DD4A003006E1 /* SkeletonBone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F233F292AC5DD4A003006E1 /* SkeletonBone.swift */; };
+		0F233F2C2AC5DEAC003006E1 /* Bones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F233F2B2AC5DEAC003006E1 /* Bones.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0F233F252AC5DA1B003006E1 /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		0F233F272AC5DCB0003006E1 /* SkeletonJoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonJoint.swift; sourceTree = "<group>"; };
 		0F233F292AC5DD4A003006E1 /* SkeletonBone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonBone.swift; sourceTree = "<group>"; };
+		0F233F2B2AC5DEAC003006E1 /* Bones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bones.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				0F233F252AC5DA1B003006E1 /* ARViewContainer.swift */,
 				0F233F272AC5DCB0003006E1 /* SkeletonJoint.swift */,
 				0F233F292AC5DD4A003006E1 /* SkeletonBone.swift */,
+				0F233F2B2AC5DEAC003006E1 /* Bones.swift */,
 				0F233F1B2AC4B6C9003006E1 /* Assets.xcassets */,
 				0F233F1D2AC4B6C9003006E1 /* Preview Content */,
 			);
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F233F1A2AC4B6C7003006E1 /* ContentView.swift in Sources */,
+				0F233F2C2AC5DEAC003006E1 /* Bones.swift in Sources */,
 				0F233F2A2AC5DD4A003006E1 /* SkeletonBone.swift in Sources */,
 				0F233F182AC4B6C7003006E1 /* AppDelegate.swift in Sources */,
 				0F233F262AC5DA1B003006E1 /* ARViewContainer.swift in Sources */,
